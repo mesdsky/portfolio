@@ -2,118 +2,109 @@
 
 import React from "react";
 import { educationData } from "@/../data/education";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Card } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
-import { GraduationCap, BookOpen, Calendar, MapPin, Award, CheckCircle2 } from "lucide-react";
+import { Calendar, MapPin, BookOpen } from "lucide-react";
 
 export function Education() {
+  const highlightedEdu = educationData.find(e => e.id === "ui-ee");
+
   return (
-    <section id="education" className="py-20 border-t border-slate-200/80 dark:border-slate-800/80 relative">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <SectionHeading
-          number="02"
-          badge="Academic Background"
-          title="Education"
-          subtitle="Formal engineering education and foundational coursework in Electrical Engineering."
-        />
+    <section id="education" className="py-20 md:py-24 border-t border-soft page-transition">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="mb-12 md:mb-16">
+          <p className="font-meta text-xs text-accent-primary tracking-wide mb-2">
+            02 — Academic Background
+          </p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display tracking-tight">
+            Education
+          </h2>
+        </div>
 
-        <div className="space-y-8">
-          {educationData.map((edu) => (
-            <Card
-              key={edu.id}
-              borderHighlight={edu.id === "ui-ee"}
-              className="p-6 sm:p-8"
-            >
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 pb-6 border-b border-slate-200/80 dark:border-slate-800/80">
-                <div className="space-y-1.5">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="p-1.5 rounded-md bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20">
-                      <GraduationCap className="w-4 h-4" />
-                    </span>
-                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100">
-                      {edu.institution}
-                    </h3>
-                    {edu.faculty && (
-                      <span className="text-sm font-medium text-slate-500 dark:text-slate-400">
-                        • {edu.faculty}
-                      </span>
-                    )}
-                  </div>
-
-                  <div className="text-base sm:text-lg font-semibold text-sky-600 dark:text-sky-400 font-mono">
-                    {edu.major} — {edu.degree}
-                  </div>
-                </div>
-
-                <div className="flex flex-col sm:flex-row md:flex-col items-start md:items-end gap-2 shrink-0">
-                  <div className="flex items-center gap-1.5 text-xs font-mono text-slate-500 dark:text-slate-400">
+        {/* Education Timeline */}
+        <div className="space-y-12">
+          {educationData.map((edu, index) => {
+            const isFeatured = edu.id === "ui-ee";
+            return (
+              <div
+                key={edu.id}
+                className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 ${
+                  isFeatured ? "lg:col-span-7" : "lg:col-span-5"
+                }`}
+              >
+                {/* Left: Date & Location */}
+                <div className="lg:col-span-3 space-y-2">
+                  <div className="inline-flex items-center gap-2 font-meta text-xs text-accent-primary">
                     <Calendar className="w-3.5 h-3.5" />
                     <span>{edu.period}</span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-xs font-mono text-slate-500 dark:text-slate-400">
+                  <div className="inline-flex items-center gap-2 font-meta text-xs text-muted">
                     <MapPin className="w-3.5 h-3.5" />
                     <span>{edu.location}</span>
                   </div>
                   {edu.gpa && (
-                    <Badge variant="amber" size="sm" className="mt-1">
-                      <Award className="w-3 h-3 text-amber-500" />
-                      <span>Cumulative GPA: {edu.gpa}</span>
-                    </Badge>
+                    <div className="mt-4 text-sm font-bold text-primary bg-accent/5 px-3 py-1.5 rounded inline-block">
+                      {edu.gpa}
+                    </div>
                   )}
                 </div>
-              </div>
 
-              {/* Description */}
-              <p className="mt-6 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-                {edu.description}
-              </p>
-
-              {/* Coursework and Highlights Grid */}
-              <div className="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-6 pt-6 border-t border-slate-100 dark:border-slate-800/60">
-                {/* Coursework */}
-                <div className="lg:col-span-7">
-                  <div className="flex items-center gap-2 mb-3">
-                    <BookOpen className="w-4 h-4 text-sky-500" />
-                    <h4 className="font-mono text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300">
-                      Relevant Coursework & Studies
-                    </h4>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {edu.coursework.map((course, idx) => (
-                      <span
-                        key={idx}
-                        className="px-2.5 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/60"
-                      >
-                        {course}
-                      </span>
-                    ))}
-                  </div>
+                {/* Middle: Institution Info */}
+                <div className="lg:col-span-5">
+                  <h3 className="text-xl sm:text-2xl font-display tracking-tight text-primary mb-1">
+                    {edu.institution}
+                  </h3>
+                  <p className="font-display text-sm text-muted mb-1">
+                    {edu.faculty}
+                  </p>
+                  <p className="font-meta text-xs text-accent-primary">
+                    {edu.major} — {edu.degree}
+                  </p>
                 </div>
 
-                {/* Highlights */}
-                <div className="lg:col-span-5">
-                  <div className="flex items-center gap-2 mb-3">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                    <h4 className="font-mono text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300">
+                {/* Right: Core Info */}
+                <div className="lg:col-span-4 space-y-4 lg:pt-2">
+                  <div>
+                    <h4 className="font-meta text-xs font-bold uppercase tracking-wide text-muted mb-3 flex items-center gap-2">
+                      <BookOpen className="w-3.5 h-3.5" />
+                      Relevant Coursework
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {edu.coursework.slice(0, 5).map((course, idx) => (
+                        <span
+                          key={idx}
+                          className="font-meta text-xs text-muted bg-neutral-100 dark:bg-neutral-900 px-2.5 py-1 rounded"
+                        >
+                          {course}
+                        </span>
+                      ))}
+                      {edu.coursework.length > 5 && (
+                        <span className="font-meta text-xs text-muted">
+                          +{edu.coursework.length - 5} more
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="font-meta text-xs font-bold uppercase tracking-wide text-muted mb-3">
                       Key Highlights
                     </h4>
+                    <ul className="space-y-1.5">
+                      {edu.highlights.map((highlight, idx) => (
+                        <li
+                          key={idx}
+                          className="font-meta text-xs leading-relaxed text-secondary flex items-start gap-2"
+                        >
+                          <span />
+                          {highlight}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <ul className="space-y-2">
-                    {edu.highlights.map((highlight, idx) => (
-                      <li
-                        key={idx}
-                        className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 flex items-start gap-2"
-                      >
-                        <span className="text-sky-500 font-mono mt-0.5">•</span>
-                        <span>{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
               </div>
-            </Card>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

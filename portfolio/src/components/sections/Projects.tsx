@@ -1,22 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
-import { projectsData, ProjectItem } from "@/../data/projects";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Card } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
+import { projectsData } from "@/../data/projects";
 import {
   Zap,
   Bot,
   Sun,
   Cpu,
-  Award,
   ArrowUpRight,
-  Globe,
-  CheckCircle2,
-  AlertCircle,
-  Lightbulb,
-  Layers,
+  Code2,
+  FileText,
+  Award,
 } from "lucide-react";
 
 export function Projects() {
@@ -34,39 +28,42 @@ export function Projects() {
       ? projectsData
       : projectsData.filter((p) => p.category === filter);
 
-  const getCategoryIcon = (category: ProjectItem["category"]) => {
+  const getCategoryIcon = (category: string) => {
     switch (category) {
       case "Energy & Environmental":
-        return <Zap className="w-4 h-4 text-emerald-500" />;
+        return <Zap className="w-4 h-4" />;
       case "Robotics & Hardware":
-        return <Bot className="w-4 h-4 text-sky-500" />;
+        return <Bot className="w-4 h-4" />;
       case "Renewable Energy":
-        return <Sun className="w-4 h-4 text-amber-500" />;
+        return <Sun className="w-4 h-4" />;
       default:
-        return <Cpu className="w-4 h-4 text-indigo-500" />;
+        return <Cpu className="w-4 h-4" />;
     }
   };
 
   return (
-    <section id="projects" className="py-20 border-t border-slate-200/80 dark:border-slate-800/80 relative">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <SectionHeading
-          number="04"
-          badge="Engineering & Innovation"
-          title="Featured Projects"
-          subtitle="Research initiatives, competitive robotics platforms, and community engineering deployments."
-        />
+    <section id="projects" className="py-20 md:py-24 border-t border-soft page-transition">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="mb-8 md:mb-12">
+          <p className="font-meta text-xs text-accent-primary tracking-wide mb-2">
+            04 — Engineering & Innovation
+          </p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display tracking-tight">
+            Featured Projects
+          </h2>
+        </div>
 
-        {/* Category Filter Pills */}
-        <div className="flex flex-wrap items-center gap-2 mb-10">
+        {/* Filter Tabs */}
+        <div className="flex flex-wrap gap-3 mb-12">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setFilter(cat.id)}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium transition-all duration-200 ${
+              className={`font-meta text-xs px-4 py-2 rounded transition-all ${
                 filter === cat.id
-                  ? "bg-sky-600 text-white shadow-xs"
-                  : "bg-slate-100 dark:bg-slate-800/80 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700/80 border border-slate-200 dark:border-slate-700/60"
+                  ? "bg-accent-primary text-white"
+                  : "bg-neutral-100 dark:bg-neutral-900 text-secondary hover:text-primary"
               }`}
             >
               {cat.label}
@@ -74,52 +71,56 @@ export function Projects() {
           ))}
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 gap-8">
+        {/* Project List */}
+        <div className="space-y-12">
           {filteredProjects.map((project) => (
-            <Card
-              key={project.id}
-              borderHighlight={project.featured}
-              className="p-6 sm:p-8 overflow-hidden"
-            >
-              {/* Header */}
-              <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 pb-6 border-b border-slate-200/80 dark:border-slate-800/80">
-                <div className="space-y-2">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="p-1.5 rounded-md bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700/60">
-                      {getCategoryIcon(project.category)}
-                    </span>
-                    <span className="text-xs font-mono font-medium text-slate-500 dark:text-slate-400">
+            <div key={project.id} className="group reveal-on-scroll">
+              {/* Hero Card — Larger for Featured */}
+              <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 ${
+                project.featured ? "lg:col-span-8 lg:mx-auto" : ""
+              }`}>
+                {/* Left: Project Info */}
+                <div className="space-y-4">
+                  {/* Category & Role */}
+                  <div className="flex flex-wrap items-center gap-3 font-meta text-xs">
+                    <span className="flex items-center gap-1.5">
+                      <span>{getCategoryIcon(project.category)}</span>
                       {project.category}
                     </span>
-                    <span className="text-slate-300 dark:text-slate-700">•</span>
-                    <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
-                      {project.period}
-                    </span>
+                    <span>•</span>
+                    <span className="text-muted">{project.period}</span>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100">
+                  {/* Title */}
+                  <h3 className="text-2xl sm:text-3xl font-display tracking-tight text-primary">
                     {project.title}
                   </h3>
 
+                  {/* Tagline */}
+                  <p className="font-display text-base text-accent-primary italic">
+                    "{project.tagline}"
+                  </p>
+
+                  {/* Award if present */}
                   {project.award && (
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-500/20 text-xs font-mono font-medium">
-                      <Award className="w-3.5 h-3.5 shrink-0" />
-                      <span>{project.award}</span>
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent/5 rounded">
+                      <Award className="w-3.5 h-3.5 text-accent-primary" />
+                      <span className="font-meta text-xs font-bold uppercase tracking-wide text-primary">
+                        {project.award}
+                      </span>
                     </div>
                   )}
                 </div>
 
-                {/* External links */}
-                <div className="flex items-center gap-2 shrink-0">
+                {/* Right: Actions */}
+                <div className="lg:col-span-4 lg:text-right flex lg:flex-col lg:justify-center gap-3">
                   {project.links?.github && (
                     <a
                       href={project.links.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-800 text-xs font-mono font-medium text-slate-700 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 hover:border-sky-500/40 transition-colors"
+                      className="inline-flex items-center justify-end gap-2 font-meta text-xs text-primary hover:text-accent-primary dark-transition"
                     >
-                      <Globe className="w-3.5 h-3.5" />
                       <span>Code Repository</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
                     </a>
@@ -127,31 +128,34 @@ export function Projects() {
                 </div>
               </div>
 
-              {/* Tagline */}
-              <p className="mt-5 text-sm sm:text-base font-medium text-sky-700 dark:text-sky-300 leading-relaxed">
-                &ldquo;{project.tagline}&rdquo;
-              </p>
-
-              {/* Technical Breakdown: Problem -> Solution -> Approach -> Outcome */}
-              <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Problem Card */}
-                <div className="p-4 rounded-lg bg-slate-50 dark:bg-slate-950/60 border border-slate-200/80 dark:border-slate-800/80 space-y-2">
-                  <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-rose-600 dark:text-rose-400">
-                    <AlertCircle className="w-4 h-4" />
-                    <span>Problem Statement</span>
+              {/* Technical Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
+                {/* Problem Statement */}
+                <div className="p-5 rounded-lg bg-neutral-50 dark:bg-neutral-900/50 border border-soft">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="w-5 h-5 rounded bg-rose-500/10 text-rose-500 flex items-center justify-center">
+                      <Code2 className="w-3 h-3" />
+                    </span>
+                    <h4 className="font-meta text-xs font-bold uppercase tracking-wide text-muted">
+                      Problem Statement
+                    </h4>
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  <p className="font-meta text-xs text-secondary leading-relaxed">
                     {project.problem}
                   </p>
                 </div>
 
-                {/* Solution Card */}
-                <div className="p-4 rounded-lg bg-slate-50 dark:bg-slate-950/60 border border-slate-200/80 dark:border-slate-800/80 space-y-2">
-                  <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
-                    <Lightbulb className="w-4 h-4" />
-                    <span>Engineered Solution</span>
+                {/* Engineered Solution */}
+                <div className="p-5 rounded-lg bg-neutral-50 dark:bg-neutral-900/50 border border-soft">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="w-5 h-5 rounded bg-emerald-500/10 text-emerald-500 flex items-center justify-center">
+                      <FileText className="w-3 h-3" />
+                    </span>
+                    <h4 className="font-meta text-xs font-bold uppercase tracking-wide text-muted">
+                      Engineered Solution
+                    </h4>
                   </div>
-                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  <p className="font-meta text-xs text-secondary leading-relaxed">
                     {project.solution}
                   </p>
                 </div>
@@ -159,50 +163,53 @@ export function Projects() {
 
               {/* Approach Steps */}
               {project.approach && project.approach.length > 0 && (
-                <div className="mt-6 space-y-2.5">
-                  <div className="flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                    <Layers className="w-3.5 h-3.5 text-sky-500" />
-                    <span>Technical Architecture & Approach</span>
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <div className="mt-8">
+                  <h4 className="font-meta text-xs font-bold uppercase tracking-wide text-muted mb-3">
+                    // Technical Architecture
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {project.approach.map((step, idx) => (
                       <div
                         key={idx}
-                        className="p-3 rounded-md bg-white dark:bg-slate-900/50 border border-slate-200/80 dark:border-slate-800/80 text-xs text-slate-600 dark:text-slate-300 flex items-start gap-2"
+                        className="p-4 rounded-lg bg-white dark:bg-neutral-900/50 border border-soft dark-transition"
                       >
-                        <span className="font-mono text-sky-500 font-bold">0{idx + 1}.</span>
-                        <span className="leading-relaxed">{step}</span>
+                        <span className="font-meta text-lg font-bold text-accent-primary mr-2">
+                          0{idx + 1}.
+                        </span>
+                        <span className="font-meta text-xs text-secondary leading-relaxed">
+                          {step}
+                        </span>
                       </div>
                     ))}
                   </div>
                 </div>
               )}
 
-              {/* Outcome & Role */}
-              <div className="mt-6 pt-5 border-t border-slate-100 dark:border-slate-800/60 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                <div className="space-y-1">
-                  <div className="text-xs font-mono text-slate-500 dark:text-slate-400">
-                    Role: <span className="font-semibold text-slate-800 dark:text-slate-200">{project.role}</span>
-                  </div>
-                  <div className="text-xs text-emerald-700 dark:text-emerald-400 font-medium flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+              {/* Bottom Row — Role & Outcome */}
+              <div className="mt-8 pt-6 border-t border-soft flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div>
+                  <p className="font-meta text-xs text-muted mb-1">
+                    Role: <span className="font-bold text-primary ml-1">{project.role}</span>
+                  </p>
+                  <p className="font-meta text-xs text-emerald-700 dark:text-emerald-400 flex items-center gap-1.5">
+                    <span>•</span>
                     <span>{project.outcome}</span>
-                  </div>
+                  </p>
                 </div>
 
-                {/* Tech tags */}
-                <div className="flex flex-wrap gap-1.5">
+                {/* Tech Tags */}
+                <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, idx) => (
                     <span
                       key={idx}
-                      className="px-2 py-0.5 rounded text-[11px] font-mono bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60"
+                      className="font-meta text-xs text-muted bg-neutral-100 dark:bg-neutral-900 px-2 py-1 rounded"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
               </div>
-            </Card>
+            </div>
           ))}
         </div>
       </div>

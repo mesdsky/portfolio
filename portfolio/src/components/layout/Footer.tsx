@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { profileData } from "@/../data/profile";
-import { Cpu, GitPullRequest, Link, Share2, Mail, ArrowUp } from "lucide-react";
+import { Cpu, Link, Globe, Route, Mail, ArrowUp } from "lucide-react";
 
 export function Footer() {
   const [time, setTime] = useState<string>("");
@@ -30,97 +30,60 @@ export function Footer() {
   };
 
   return (
-    <footer className="border-t border-slate-200 dark:border-slate-800/80 bg-slate-50/50 dark:bg-slate-950/60 transition-colors">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+    <footer className="border-t border-soft bg-neutral-50 dark:bg-neutral-950/80 dark-transition">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 mb-12 md:mb-16">
           {/* Col 1: Identity */}
           <div className="md:col-span-2 space-y-4">
-            <div className="flex items-center gap-2">
-              <span className="p-1.5 rounded-md bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20">
+            <div className="flex items-center gap-3">
+              <span className="w-10 h-10 rounded-lg bg-accent/5 text-accent-primary flex items-center justify-center">
                 <Cpu className="w-4 h-4" />
               </span>
-              <span className="font-mono font-bold text-slate-900 dark:text-slate-100">
+              <span className="font-display text-lg text-primary">
                 {profileData.name}
               </span>
             </div>
-            <p className="text-sm text-slate-600 dark:text-slate-400 max-w-md leading-relaxed">
-              Undergraduate in Electrical Engineering at Universitas Indonesia focusing on Electronics & IC, Embedded Systems & IoT, Power Systems, and Artificial Intelligence.
+            <p className="text-sm text-secondary max-w-sm leading-relaxed">
+              Electrical Engineering undergraduate focused on electronics, embedded systems,
+              IoT, AI, and renewable energy innovation.
             </p>
-            <div className="flex items-center gap-2 font-mono text-xs text-slate-500 dark:text-slate-400">
-              <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-              <span>Location: Depok / Jakarta, Indonesia</span>
-              {time && <span className="text-slate-400 dark:text-slate-500">• {time}</span>}
+            <div className="flex items-center gap-2 font-meta text-xs text-muted">
+              <span className="w-2 h-2 rounded-full bg-emerald-500" />
+              <span>Depok / Jakarta, Indonesia</span>
+              {time && <span>• {time}</span>}
             </div>
           </div>
 
           {/* Col 2: Navigation */}
           <div>
-            <h4 className="font-mono text-xs font-semibold uppercase tracking-wider text-slate-900 dark:text-slate-200 mb-3">
+            <h4 className="font-meta text-xs font-bold uppercase tracking-wide text-muted mb-4">
               Navigation
             </h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a
-                  href="#about"
-                  className="text-slate-600 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
-                >
-                  About Me
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#education"
-                  className="text-slate-600 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
-                >
-                  Education & Coursework
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#experience"
-                  className="text-slate-600 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
-                >
-                  Organizations & Leadership
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#projects"
-                  className="text-slate-600 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
-                >
-                  Featured Projects
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#skills"
-                  className="text-slate-600 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
-                >
-                  Skills Matrix
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#achievements"
-                  className="text-slate-600 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
-                >
-                  Awards & Honors
-                </a>
-              </li>
+            <ul className="space-y-2.5">
+              {["About", "Education", "Experience", "Projects", "Skills", "Honors"].map((navItem) => (
+                <li key={navItem}>
+                  <a
+                    href={`#${navItem.toLowerCase().replace(" & ", "-")}`}
+                    className="font-meta text-xs text-secondary hover:text-primary dark-transition"
+                  >
+                    {navItem}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Col 3: Connect & Socials */}
+          {/* Col 3: Connect */}
           <div>
-            <h4 className="font-mono text-xs font-semibold uppercase tracking-wider text-slate-900 dark:text-slate-200 mb-3">
+            <h4 className="font-meta text-xs font-bold uppercase tracking-wide text-muted mb-4">
               Connect
             </h4>
-            <div className="flex flex-col gap-2.5 text-sm">
+            <div className="space-y-3">
               <a
                 href={profileData.socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
+                className="flex items-center gap-2 font-meta text-xs text-secondary hover:text-primary dark-transition"
               >
                 <Link className="w-4 h-4" />
                 <span>LinkedIn</span>
@@ -129,23 +92,23 @@ export function Footer() {
                 href={profileData.socials.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
+                className="flex items-center gap-2 font-meta text-xs text-secondary hover:text-primary dark-transition"
               >
-                <GitPullRequest className="w-4 h-4" />
+                <Globe className="w-4 h-4" />
                 <span>GitHub</span>
               </a>
               <a
                 href={profileData.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
+                className="flex items-center gap-2 font-meta text-xs text-secondary hover:text-primary dark-transition"
               >
-                <Share2 className="w-4 h-4" />
+                <Route className="w-4 h-4" />
                 <span>Instagram</span>
               </a>
               <a
                 href={`mailto:${profileData.socials.email}`}
-                className="inline-flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
+                className="flex items-center gap-2 font-meta text-xs text-secondary hover:text-primary dark-transition"
               >
                 <Mail className="w-4 h-4" />
                 <span>Email Direct</span>
@@ -154,20 +117,19 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500 dark:text-slate-400">
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-soft flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-meta text-muted">
           <div>
             © {new Date().getFullYear()} {profileData.name}. All rights reserved.
           </div>
           <div className="flex items-center gap-4">
-            <span>Built with Next.js & Tailwind CSS</span>
+            <span>Built with Next.js & Tailwind CSS v4</span>
             <button
               onClick={scrollToTop}
-              className="p-1.5 rounded-md hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 transition-colors"
-              aria-label="Back to top"
-              title="Back to top"
+              className="flex items-center gap-1.5 px-3 py-1 rounded hover:bg-neutral-200 dark:hover:bg-neutral-800 text-muted hover:text-primary dark-transition text-xs font-bold uppercase tracking-wide"
             >
-              <ArrowUp className="w-4 h-4" />
+              Top
+              <ArrowUp className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>

@@ -2,21 +2,7 @@
 
 import React, { useState } from "react";
 import { profileData } from "@/../data/profile";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Card } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
-import {
-  Mail,
-  Link,
-  Globe,
-  Share2,
-  Copy,
-  Check,
-  ArrowUpRight,
-  Send,
-  MessageSquare,
-  MapPin,
-} from "lucide-react";
+import { Mail, Link, Globe, Share2, Send, Copy, Check, MapPin, ArrowUpRight } from "lucide-react";
 
 export function Contact() {
   const [copied, setCopied] = useState(false);
@@ -24,63 +10,64 @@ export function Contact() {
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(profileData.socials.email);
     setCopied(true);
-    setTimeout(() => setCopied(false), 2500);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <section id="contact" className="py-20 border-t border-slate-200/80 dark:border-slate-800/80 relative">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <SectionHeading
-          number="07"
-          badge="Get In Touch"
-          title="Contact & Collaboration"
-          subtitle="Open for engineering projects, undergraduate research opportunities, technical discussions, and professional networking."
-        />
+    <section id="contact" className="py-20 md:py-24 border-t border-soft page-transition">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="mb-12 md:mb-16">
+          <p className="font-meta text-xs text-accent-primary tracking-wide mb-2">
+            07 — Get In Touch
+          </p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display tracking-tight">
+            Contact & Collaboration
+          </h2>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          {/* Main Primary Action (Left 7 Cols) */}
-          <Card
-            borderHighlight={true}
-            className="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between"
-          >
-            <div className="space-y-6">
-              <div className="inline-flex items-center gap-2">
-                <Badge variant="green" size="md">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                  <span>Actively Open to Opportunities</span>
-                </Badge>
-              </div>
+        {/* Editorial Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12">
+          {/* Left CTA Column */}
+          <div className="lg:col-span-7 space-y-8">
+            {/* Strong Closing Statement */}
+            <p className="text-lg sm:text-xl leading-relaxed text-secondary">
+              Let&apos;s build something worth engineering.
+            </p>
+            <p className="text-base sm:text-lg text-secondary max-w-2xl">
+              Whether you&apos;re looking for undergraduate research collaboration,
+              project partnership, or technical discussion—I&apos;m always eager to connect.
+            </p>
 
-              <div>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100">
-                  Let&apos;s build impactful engineering solutions together.
-                </h3>
-                <p className="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
-                  Whether you are a recruiter, professor, mentor, engineering peer, or collaborator looking to discuss electronics, IoT, AI, or renewable energy—feel free to reach out.
-                </p>
-              </div>
+            {/* Location Always Visible */}
+            <div className="flex items-center gap-3 font-meta text-sm text-muted">
+              <span className="flex items-center gap-2">
+                <MapPin className="w-4 h-4" />
+                <span>Universitas Indonesia, Kampus UI Depok, West Java, Indonesia</span>
+              </span>
+            </div>
 
-              {/* Email Box with Copy */}
-              <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            {/* Email Section — Editorial */}
+            <div className="p-6 rounded-lg bg-neutral-50 dark:bg-neutral-900/50 border border-soft group">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div className="flex items-center gap-3 overflow-hidden">
-                  <div className="p-2 rounded-lg bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20 shrink-0">
-                    <Mail className="w-4 h-4" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-accent-primary/10 text-accent-primary flex items-center justify-center">
+                    <Mail className="w-5 h-5" />
                   </div>
-                  <span className="font-mono text-sm sm:text-base font-semibold text-slate-900 dark:text-slate-100 truncate">
+                  <span className="font-meta font-bold text-primary">
                     {profileData.socials.email}
                   </span>
                 </div>
 
-                <div className="flex items-center gap-2 shrink-0">
+                <div className="flex items-center gap-2 flex-shrink-0">
                   <button
                     onClick={handleCopyEmail}
-                    className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-mono font-medium rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors active:scale-95"
-                    aria-label="Copy email address"
+                    className="inline-flex items-center gap-2 font-meta text-xs px-4 py-2 text-primary border border-soft rounded hover:bg-neutral-100 dark:hover:bg-neutral-800 dark-transition"
                   >
                     {copied ? (
                       <>
-                        <Check className="w-3.5 h-3.5 text-emerald-500" />
-                        <span className="text-emerald-600 dark:text-emerald-400">Copied!</span>
+                        <Check className="w-3.5 h-3.5 text-emerald-600" />
+                        <span>Copied</span>
                       </>
                     ) : (
                       <>
@@ -92,104 +79,88 @@ export function Contact() {
 
                   <a
                     href={`mailto:${profileData.socials.email}`}
-                    className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-mono font-medium rounded-lg bg-sky-600 hover:bg-sky-500 text-white transition-colors active:scale-95"
+                    className="inline-flex items-center gap-2 font-meta text-xs px-4 py-2 text-white bg-accent-primary rounded hover:bg-accent-hover dark-transition"
                   >
                     <Send className="w-3.5 h-3.5" />
-                    <span>Send Mail</span>
+                    <span>Email Me</span>
                   </a>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div className="mt-8 pt-4 border-t border-slate-100 dark:border-slate-800/60 flex items-center gap-2 text-xs font-mono text-slate-500 dark:text-slate-400">
-              <MapPin className="w-3.5 h-3.5 text-sky-500" />
-              <span>Universitas Indonesia, Kampus UI Depok, West Java, Indonesia</span>
-            </div>
-          </Card>
-
-          {/* Social Links Cards (Right 5 Cols) */}
-          <div className="lg:col-span-5 flex flex-col justify-between gap-4">
-            {/* LinkedIn Card */}
+          {/* Right Social Links Column */}
+          <div className="lg:col-span-5 space-y-3">
+            {/* LinkedIn */}
             <a
               href={profileData.socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block"
+              className="block p-6 rounded-lg bg-neutral-50 dark:bg-neutral-900/50 border border-soft hover:border-accent-primary/30 dark-transition group/item"
             >
-              <Card className="p-5 group-hover:border-sky-500/60 transition-all">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2.5 rounded-lg bg-[#0077b5]/10 text-[#0077b5] dark:text-sky-400 border border-[#0077b5]/20">
-                      <Link className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 text-sm">
-                        LinkedIn
-                      </h4>
-                      <p className="text-xs text-slate-500 dark:text-slate-400 font-mono">
-                        linkedin.com/in/nabilhaniyazafri
-                      </p>
-                    </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-[#0077b5]/10 text-[#0077b5] flex items-center justify-center">
+                    <Link className="w-5 h-5" />
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-sky-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                  <div>
+                    <h4 className="font-display text-sm text-primary">LinkedIn</h4>
+                    <p className="font-meta text-xs text-muted">linkedin.com/in/nabilhaniyazafri</p>
+                  </div>
                 </div>
-              </Card>
+                <ArrowUpRight className="w-4 h-4 text-muted group-hover/item:text-accent-primary dark-transition" />
+              </div>
             </a>
 
-            {/* GitHub Card */}
+            {/* GitHub */}
             <a
               href={profileData.socials.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block"
+              className="block p-6 rounded-lg bg-neutral-50 dark:bg-neutral-900/50 border border-soft hover:border-accent-primary/30 dark-transition group/item"
             >
-              <Card className="p-5 group-hover:border-sky-500/60 transition-all">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2.5 rounded-lg bg-slate-900/10 dark:bg-slate-100/10 text-slate-900 dark:text-slate-100 border border-slate-300 dark:border-slate-700">
-                      <Globe className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 text-sm">
-                        GitHub
-                      </h4>
-                      <p className="text-xs text-slate-500 dark:text-slate-400 font-mono">
-                        github.com/mesdsky
-                      </p>
-                    </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-neutral-900 dark:bg-neutral-100 flex items-center justify-center text-neutral-900 dark:text-neutral-100">
+                    <Globe className="w-5 h-5" />
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-sky-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                  <div>
+                    <h4 className="font-display text-sm text-primary">GitHub</h4>
+                    <p className="font-meta text-xs text-muted">github.com/mesdsky</p>
+                  </div>
                 </div>
-              </Card>
+                <ArrowUpRight className="w-4 h-4 text-muted group-hover/item:text-accent-primary dark-transition" />
+              </div>
             </a>
 
-            {/* Instagram Card */}
+            {/* Instagram */}
             <a
               href={profileData.socials.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="group block"
+              className="block p-6 rounded-lg bg-neutral-50 dark:bg-neutral-900/50 border border-soft hover:border-rose-400/30 dark-transition group/item"
             >
-              <Card className="p-5 group-hover:border-sky-500/60 transition-all">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="p-2.5 rounded-lg bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20">
-                      <Share2 className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-slate-900 dark:text-slate-100 text-sm">
-                        Instagram
-                      </h4>
-                      <p className="text-xs text-slate-500 dark:text-slate-400 font-mono">
-                        @nbl.zfr
-                      </p>
-                    </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-rose-500/10 text-rose-500 flex items-center justify-center">
+                    <Share2 className="w-5 h-5" />
                   </div>
-                  <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-sky-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                  <div>
+                    <h4 className="font-display text-sm text-primary">Instagram</h4>
+                    <p className="font-meta text-xs text-muted">@nbl.zfr</p>
+                  </div>
                 </div>
-              </Card>
+                <ArrowUpRight className="w-4 h-4 text-muted group-hover/item:text-rose-400 dark-transition" />
+              </div>
             </a>
           </div>
+        </div>
+
+        {/* Strong Closing CTA */}
+        <div className="mt-16 text-center">
+          <p className="font-meta text-sm text-muted">
+            Open to engineering collaborations, research opportunities, and technical discussions
+          </p>
         </div>
       </div>
     </section>

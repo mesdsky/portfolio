@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     alternateLocale: "id_ID",
-    url: "https://nabilhaniyazafri.com",
+    url: "https://nabilhaniyazafri.vercel.app",
     title: "Nabil Haniya Zafri | Electrical Engineering @ Universitas Indonesia",
     description:
       "Personal portfolio, engineering research in Microbial Fuel Cells, competitive robotics leadership, and technical CV of Nabil Haniya Zafri.",
@@ -116,7 +116,11 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" suppressHydrationWarning className="scroll-smooth">
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className="scroll-smooth"
+    >
       <head>
         <script
           type="application/ld+json"
@@ -124,11 +128,11 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-stone-100 transition-colors duration-300`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased transition-colors duration-300`}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="system"
           enableSystem
           disableTransitionOnChange={false}
         >

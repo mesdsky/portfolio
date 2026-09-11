@@ -20,20 +20,22 @@ export function Badge({
 
   const variantStyles = {
     default:
-      "bg-amber-50 dark:bg-amber-950/60 text-amber-900 dark:text-amber-200 border border-amber-200 dark:border-amber-800/60",
+      "font-bold text-accent-primary bg-accent/5 border border-soft",
     outline:
-      "bg-transparent text-stone-600 dark:text-stone-400 border border-stone-300 dark:border-stone-700",
+      "text-muted bg-transparent border border-soft",
     highlight:
-      "bg-amber-100 dark:bg-amber-900/60 text-amber-800 dark:text-amber-200 border border-amber-300 dark:border-amber-700/60 font-medium",
+      "font-medium text-accent-primary bg-accent/5 border border-soft",
     amber:
-      "bg-orange-50 dark:bg-orange-950/60 text-orange-800 dark:text-orange-200 border border-orange-200 dark:border-orange-800/60 font-medium",
+      "font-medium text-orange-800 dark:text-orange-300 bg-orange-50 dark:bg-orange-950/60 border border-orange-200 dark:border-orange-800/60",
     green:
-      "bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-200 border border-emerald-200 dark:border-emerald-800/60 font-medium",
+      "font-medium text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60",
   };
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full transition-all hover:scale-105 ${sizeStyles[size]} ${variantStyles[variant]} ${className}`}
+      className={`inline-flex items-center gap-1.5 rounded-full transition-all ${
+        sizeStyles[size]} ${variantStyles[variant]} ${className}
+      `}
     >
       {children}
     </span>

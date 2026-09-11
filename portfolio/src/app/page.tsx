@@ -11,25 +11,19 @@ import { Contact } from "@/components/sections/Contact";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-stone-100 selection:bg-amber-200/40 selection:text-amber-900 dark:selection:bg-amber-800/40 dark:selection:text-amber-200">
-      {/* Background Paper Texture */}
-      <div className="fixed inset-0 paper-texture pointer-events-none z-0" />
-
-      {/* Main App Container */}
-      <div className="relative z-10 flex flex-col min-h-screen">
-        <Navbar />
-        <main className="flex-1">
-          <Hero />
-          <About />
-          <Education />
-          <Experience />
-          <Projects />
-          <Skills />
-          <Achievements />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
+    <div className="min-h-screen">
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Education />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Achievements />
+        <Contact />
+      </main>
+      <Footer />
     </div>
   );
 }
