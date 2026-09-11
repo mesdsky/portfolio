@@ -76,11 +76,9 @@ export function Projects() {
           {filteredProjects.map((project) => (
             <div key={project.id} className="group reveal-on-scroll">
               {/* Hero Card — Larger for Featured */}
-              <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 ${
-                project.featured ? "lg:col-span-8 lg:mx-auto" : ""
-              }`}>
-                {/* Left: Project Info */}
-                <div className="space-y-4">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                {/* Left: Project Info — 2 cols */}
+                <div className="lg:col-span-2 space-y-4">
                   {/* Category & Role */}
                   <div className="flex flex-wrap items-center gap-3 font-meta text-xs">
                     <span className="flex items-center gap-1.5">
@@ -112,14 +110,14 @@ export function Projects() {
                   )}
                 </div>
 
-                {/* Right: Actions */}
-                <div className="lg:col-span-4 lg:text-right flex lg:flex-col lg:justify-center gap-3">
+                {/* Right: Actions — 1 col */}
+                <div className="flex flex-col gap-3 lg:justify-start">
                   {project.links?.github && (
                     <a
                       href={project.links.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-end gap-2 font-meta text-xs text-primary hover:text-accent-primary dark-transition"
+                      className="inline-flex items-center gap-2 font-meta text-xs text-primary hover:text-accent-primary dark-transition"
                     >
                       <span>Code Repository</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
@@ -131,12 +129,12 @@ export function Projects() {
               {/* Technical Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
                 {/* Problem Statement */}
-                <div className="p-5 rounded-lg bg-neutral-50 dark:bg-neutral-900/50 border border-soft">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="w-5 h-5 rounded bg-rose-500/10 text-rose-500 flex items-center justify-center">
-                      <Code2 className="w-3 h-3" />
+                <div className="p-6 rounded-lg border border-soft dark-transition">
+                  <div className="flex items-center gap-2 mb-4 pb-4 border-b border-soft">
+                    <span className="w-10 h-10 rounded-lg bg-rose-500/10 text-rose-600 dark:text-rose-400 flex items-center justify-center">
+                      <Code2 className="w-4 h-4" />
                     </span>
-                    <h4 className="font-meta text-xs font-bold uppercase tracking-wide text-muted">
+                    <h4 className="font-meta text-xs font-bold uppercase tracking-wide text-primary">
                       Problem Statement
                     </h4>
                   </div>
@@ -146,12 +144,12 @@ export function Projects() {
                 </div>
 
                 {/* Engineered Solution */}
-                <div className="p-5 rounded-lg bg-neutral-50 dark:bg-neutral-900/50 border border-soft">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="w-5 h-5 rounded bg-emerald-500/10 text-emerald-500 flex items-center justify-center">
-                      <FileText className="w-3 h-3" />
+                <div className="p-6 rounded-lg border border-soft dark-transition">
+                  <div className="flex items-center gap-2 mb-4 pb-4 border-b border-soft">
+                    <span className="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                      <FileText className="w-4 h-4" />
                     </span>
-                    <h4 className="font-meta text-xs font-bold uppercase tracking-wide text-muted">
+                    <h4 className="font-meta text-xs font-bold uppercase tracking-wide text-primary">
                       Engineered Solution
                     </h4>
                   </div>
@@ -171,7 +169,7 @@ export function Projects() {
                     {project.approach.map((step, idx) => (
                       <div
                         key={idx}
-                        className="p-4 rounded-lg bg-white dark:bg-neutral-900/50 border border-soft dark-transition"
+                        className="p-4 rounded-lg border border-soft hover:bg-neutral-50 dark:hover:bg-neutral-900/50 dark-transition"
                       >
                         <span className="font-meta text-lg font-bold text-accent-primary mr-2">
                           0{idx + 1}.

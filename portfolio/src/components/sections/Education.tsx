@@ -27,12 +27,10 @@ export function Education() {
             return (
               <div
                 key={edu.id}
-                className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 ${
-                  isFeatured ? "lg:col-span-7" : "lg:col-span-5"
-                }`}
+                className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12"
               >
                 {/* Left: Date & Location */}
-                <div className="lg:col-span-3 space-y-2">
+                <div className="space-y-3">
                   <div className="inline-flex items-center gap-2 font-meta text-xs text-accent-primary">
                     <Calendar className="w-3.5 h-3.5" />
                     <span>{edu.period}</span>
@@ -42,14 +40,14 @@ export function Education() {
                     <span>{edu.location}</span>
                   </div>
                   {edu.gpa && (
-                    <div className="mt-4 text-sm font-bold text-primary bg-accent/5 px-3 py-1.5 rounded inline-block">
+                    <div className="mt-2 text-sm font-bold text-primary bg-accent/5 px-3 py-1.5 rounded inline-block">
                       {edu.gpa}
                     </div>
                   )}
                 </div>
 
                 {/* Middle: Institution Info */}
-                <div className="lg:col-span-5">
+                <div>
                   <h3 className="text-xl sm:text-2xl font-display tracking-tight text-primary mb-1">
                     {edu.institution}
                   </h3>
@@ -62,7 +60,7 @@ export function Education() {
                 </div>
 
                 {/* Right: Core Info */}
-                <div className="lg:col-span-4 space-y-4 lg:pt-2">
+                <div className="space-y-4">
                   <div>
                     <h4 className="font-meta text-xs font-bold uppercase tracking-wide text-muted mb-3 flex items-center gap-2">
                       <BookOpen className="w-3.5 h-3.5" />
@@ -72,7 +70,7 @@ export function Education() {
                       {edu.coursework.slice(0, 5).map((course, idx) => (
                         <span
                           key={idx}
-                          className="font-meta text-xs text-muted bg-neutral-100 dark:bg-neutral-900 px-2.5 py-1 rounded"
+                          className="font-meta text-xs text-secondary bg-white dark:bg-neutral-900/50 px-3 py-1.5 rounded border border-soft hover:bg-neutral-50 dark:hover:bg-neutral-900 dark-transition"
                         >
                           {course}
                         </span>
@@ -89,13 +87,13 @@ export function Education() {
                     <h4 className="font-meta text-xs font-bold uppercase tracking-wide text-muted mb-3">
                       Key Highlights
                     </h4>
-                    <ul className="space-y-1.5">
+                    <ul className="space-y-2">
                       {edu.highlights.map((highlight, idx) => (
                         <li
                           key={idx}
-                          className="font-meta text-xs leading-relaxed text-secondary flex items-start gap-2"
+                          className="font-meta text-xs leading-relaxed text-secondary flex items-start gap-2 p-2.5 rounded border border-soft hover:bg-neutral-50 dark:hover:bg-neutral-900/50 dark-transition"
                         >
-                          <span />
+                          <span className="text-accent-primary mt-0.5">→</span>
                           {highlight}
                         </li>
                       ))}

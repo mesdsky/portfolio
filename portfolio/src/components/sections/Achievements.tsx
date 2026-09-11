@@ -29,24 +29,24 @@ export function Achievements() {
               key={item.id}
               className="reveal-on-scroll"
             >
-              <div className="p-8 h-full border border-soft rounded-lg bg-neutral-50 dark:bg-neutral-900/50 dark-transition group">
-                {/* Icon */}
-                <div className="mb-4">
-                  <div className="w-12 h-12 rounded-lg bg-accent/5 flex items-center justify-center text-accent-primary">
+              <div className="p-8 h-full border border-soft rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-900/50 dark-transition">
+                {/* Header with Icon */}
+                <div className="flex items-start gap-4 mb-4 pb-4 border-b border-soft">
+                  <div className="w-12 h-12 rounded-lg bg-accent/5 flex items-center justify-center text-accent-primary flex-shrink-0">
                     <Trophy className="w-6 h-6" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg sm:text-xl font-display tracking-tight text-primary">
+                      {item.title}
+                    </h3>
                   </div>
                 </div>
 
-                {/* Title */}
-                <h3 className="text-lg sm:text-xl font-display tracking-tight text-primary mb-2">
-                  {item.title}
-                </h3>
-
                 {/* Meta */}
-                <div className="flex items-center gap-2 font-meta text-xs text-accent-primary mb-3">
+                <div className="flex items-center gap-2 font-meta text-xs text-muted mb-3">
                   <Calendar className="w-3.5 h-3.5" />
                   <span>{item.issuer}</span>
-                  <span className="text-muted">•</span>
+                  <span>•</span>
                   <span>{item.year}</span>
                 </div>
 
@@ -56,7 +56,7 @@ export function Achievements() {
                 </p>
 
                 {/* Footer */}
-                <div className="mt-6 pt-4 border-t border-soft flex items-center gap-2 text-xs font-meta text-muted">
+                <div className="mt-4 pt-4 border-t border-soft flex items-center gap-2 text-xs font-meta text-muted">
                   <CheckCircle className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                   <span>Verified Achievement</span>
                 </div>
