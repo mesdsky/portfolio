@@ -2,86 +2,94 @@
 
 @layer base {
   :root {
-    /* Light Mode — Editorial + Engineering Earthtones */
+    /* Light Mode — Cream + Orange Accent */
     --font-root-base: 16px;
 
-    /* Color Palette — Refined Earthtones */
-    --bg-primary: #fffbf9;
-    --bg-secondary: #f8f5f2;
-    --bg-neutral: #f4f1ed;
-    --bg-elevated: rgba(255, 255, 255, 0.92);
+    /* Color Palette — Cream + Orange */
+    --bg-primary: #faf7f2;
+    --bg-secondary: #f5f0e8;
+    --bg-neutral: #ede7de;
+    --bg-elevated: rgba(250, 247, 242, 0.95);
 
-    --border-soft: #e5e0d8;
-    --border-subtle: #dcc8b9;
+    --border-soft: #e5ddd1;
+    --border-subtle: #ddd3c5;
 
-    --text-primary: #1a1816;
-    --text-secondary: #56514b;
-    --text-muted: #8c867f;
-    --text-tertiary: #a89f95;
+    --text-primary: #2b2520;
+    --text-secondary: #5a5450;
+    --text-muted: #8a827a;
+    --text-tertiary: #a69f96;
 
-    --accent-primary: #8b7355;
-    --accent-light: #a88b6d;
-    --accent-hover: #6d583c;
-    --accent-emphasis: #4a3b2c;
+    --accent-primary: #f59e0b;
+    --accent-light: #fbbf24;
+    --accent-hover: #d97706;
+    --accent-emphasis: #b45309;
+
+    /* Dark accent for featured sections */
+    --dark-bg: #1f1b18;
+    --dark-text: #faf7f2;
 
     /* Code/Technical Accents */
-    --code-bg: #f0ece7;
-    --code-text: #4a3b2c;
-    --code-signature: #8b7355;
+    --code-bg: #f0ebe3;
+    --code-text: #2b2520;
+    --code-signature: #f59e0b;
 
     /* Status Indicators */
     --status-success: #3d4a38;
-    --status-warning: #7a6b4c;
+    --status-warning: #f59e0b;
     --status-info: #5a6b7a;
 
-    /* Shadows — Subtle, Engineering-Specific */
-    --shadow-sm: 0 1px 2px rgba(26, 24, 22, 0.04);
-    --shadow-md: 0 4px 8px -1px rgba(26, 24, 22, 0.06);
-    --shadow-lg: 0 10px 30px -5px rgba(26, 24, 22, 0.08);
-    --shadow-elevated: 0 20px 40px -5px rgba(26, 24, 22, 0.12);
+    /* Shadows — Subtle, Editorial */
+    --shadow-sm: 0 1px 2px rgba(43, 37, 32, 0.04);
+    --shadow-md: 0 4px 8px -1px rgba(43, 37, 32, 0.06);
+    --shadow-lg: 0 10px 30px -5px rgba(43, 37, 32, 0.08);
+    --shadow-elevated: 0 20px 40px -5px rgba(43, 37, 32, 0.12);
 
     /* Spacing Scale — 8px Baseline */
     --space-0: 0px;
-    --space-1: 0.25rem;  /* 4px */
-    --space-2: 0.5rem;   /* 8px */
-    --space-3: 0.75rem;  /* 12px */
-    --space-4: 1rem;     /* 16px */
-    --space-5: 1.25rem;  /* 20px */
-    --space-6: 1.5rem;   /* 24px */
-    --space-8: 2rem;     /* 32px */
-    --space-10: 2.5rem;  /* 40px */
-    --space-12: 3rem;    /* 48px */
-    --space-16: 4rem;    /* 64px */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
   }
 
   .dark {
-    /* Dark Mode — Editorial + Engineering Mocha */
+    /* Dark Mode — Dark Brown + Cream + Orange Accent */
     --bg-primary: #0f0d0b;
-    --bg-secondary: #141109;
-    --bg-neutral: #1a1715;
-    --bg-elevated: rgba(20, 17, 13, 0.92);
+    --bg-secondary: #1a1715;
+    --bg-neutral: #241f1a;
+    --bg-elevated: rgba(31, 27, 24, 0.95);
 
-    --border-soft: #2a2622;
-    --border-subtle: #3d362b;
+    --border-soft: #2d2620;
+    --border-subtle: #3d3630;
 
-    --text-primary: #f2ede7;
-    --text-secondary: #c6bfa9;
-    --text-muted: #9a938b;
-    --text-tertiary: #787067;
+    --text-primary: #faf7f2;
+    --text-secondary: #d4cec5;
+    --text-muted: #a09690;
+    --text-tertiary: #7a7066;
 
-    --accent-primary: #c9bfa5;
-    --accent-light: #d6ccc0;
-    --accent-hover: #9a8c75;
-    --accent-emphasis: #6a6055;
+    --accent-primary: #fbbf24;
+    --accent-light: #fcd34d;
+    --accent-hover: #f59e0b;
+    --accent-emphasis: #d97706;
+
+    /* Dark accent sections */
+    --dark-bg: #1f1b18;
+    --dark-text: #faf7f2;
 
     /* Code/Technical Accents */
     --code-bg: #1a1715;
-    --code-text: #c9bfa5;
-    --code-signature: #9a8c75;
+    --code-text: #fbbf24;
+    --code-signature: #f59e0b;
 
     /* Status Indicators */
     --status-success: #4a5c45;
-    --status-warning: #9a8c75;
+    --status-warning: #f59e0b;
     --status-info: #5a6b7a;
 
     /* Shadows — Deep & Layered */
@@ -130,13 +138,6 @@
   }
 }
 
-/* Subtle Paper Texture Background */
-.paper-texture {
-  background-image:
-    radial-gradient(rgba(180, 149, 109, 0.03) 1px, transparent 1px);
-  background-size: 20px 20px;
-}
-
 /* Smooth Page Fade In */
 @keyframes pageFadeIn {
   from {
@@ -166,29 +167,6 @@
 .reveal-on-scroll {
   opacity: 0;
   animation: sectionReveal 0.6s ease-out forwards;
-}
-
-/* Subtle Text Highlight */
-@keyframes textHighlight {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 100% 0;
-  }
-}
-
-.highlight-keyword {
-  background-image: linear-gradient(var(--accent-primary), var(--accent-primary));
-  background-repeat: no-repeat;
-  background-size: 0% 0%;
-  background-position: 0 0;
-  transition: background-size 0.3s ease;
-}
-
-.highlight-keyword:hover {
-  background-size: 100% 0%;
-  text-decoration: underline;
 }
 
 /* Border Transition */
@@ -221,7 +199,7 @@
 
 /* Editorial Typography Utilities */
 .font-display {
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -0.03em;
 }
 
@@ -233,6 +211,7 @@
   font-size: 0.75rem;
   letter-spacing: 0.025em;
   text-transform: uppercase;
+  font-weight: 600;
 }
 
 .font-meta {
@@ -250,15 +229,15 @@
                 box-shadow 0.3s ease;
   }
 
-  .text-stroke {
-    -webkit-text-stroke: 1px var(--border-subtle);
-    color: transparent;
-  }
-
   .glass-panel {
     background: var(--bg-elevated);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+  }
+
+  .accent-text {
+    color: var(--accent-primary);
+    font-weight: 700;
   }
 }
 
