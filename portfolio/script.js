@@ -1,10 +1,12 @@
 const dialog = document.querySelector('#case-dialog');
-const openButton = document.querySelector('[data-project="artworker"]');
+const openButton = document.querySelector('#open-case');
 const closeButton = document.querySelector('.dialog-close');
 
 openButton.addEventListener('click', () => dialog.showModal());
 closeButton.addEventListener('click', () => dialog.close());
-dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
+dialog.addEventListener('click', (event) => {
+  if (event.target === dialog) dialog.close();
+});
 
 function updateClock() {
   const time = new Intl.DateTimeFormat('en-GB', {

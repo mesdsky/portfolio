@@ -3,87 +3,93 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Portfolio of Nabil Haniya Zafri — electrical engineering student working across robotics, energy innovation, and technology-driven problem solving." />
+  <meta name="description" content="Nabil Haniya Zafri — electrical engineering student exploring robotics, energy systems, and purposeful technology." />
   <title>Nabil Haniya Zafri — Electrical Engineering</title>
   <link rel="stylesheet" href="styles.css" />
   <script src="script.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#work">Skip to selected work</a>
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="Nabil Haniya Zafri, home">NHZ<span aria-hidden="true">↗</span></a>
-    <nav aria-label="Primary navigation"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
-    <a class="availability" href="https://www.linkedin.com/in/nabilhaniyazafri" target="_blank" rel="noreferrer"><span></span> LinkedIn</a>
+  <a class="skip" href="#work">Skip to work</a>
+  <header class="nav-wrap">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="logo" href="#top">NABIL<span>.</span></a>
+      <div class="nav-links"><a href="#expertise">Expertise</a><a href="#work">Work</a><a href="#experience">Experience</a><a href="#about">About</a></div>
+      <a class="nav-cta" href="mailto:nhaniya14@gmail.com">Let’s talk <span>↗</span></a>
+    </nav>
   </header>
 
   <main id="top">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-kicker mono">Electrical Engineering · Universitas Indonesia</div>
-      <h1 id="hero-title">Engineering ideas for<br><em>a cleaner future.</em></h1>
-      <div class="hero-bottom">
-        <p>I explore robotics, energy innovation, and technology-driven problem solving—from system models to real-world impact.</p>
-        <a class="text-link" href="#work">See selected work <span aria-hidden="true">↓</span></a>
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Electrical engineering · Universitas Indonesia</p>
+        <h1>Building technology for a <em>smarter, cleaner</em> world.</h1>
+        <p class="hero-intro">I’m Nabil—an engineering student exploring robotics, sustainable energy, and systems that turn complex problems into practical impact.</p>
+        <div class="hero-actions"><a class="button primary" href="#work">Explore my work <span>↘</span></a><a class="button ghost" href="https://www.linkedin.com/in/nabilhaniyazafri" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a></div>
       </div>
-      <div class="orbit" aria-hidden="true"><span class="orbit-ring"></span><span class="orbit-dot"></span><b>01</b></div>
+      <div class="hero-card">
+        <div class="portrait-wrap"><img src="profile.jpg" alt="Nabil Haniya Zafri wearing a yellow Universitas Indonesia jacket" /></div>
+        <div class="profile-label"><div><strong>Nabil Haniya Zafri</strong><span>Electrical Engineering Student</span></div><span class="available">Available to connect</span></div>
+        <div class="orbit-badge" aria-hidden="true"><span>ENGINEER · BUILDER · LEARNER · </span><b>+</b></div>
+      </div>
     </section>
 
-    <section class="work" id="work" aria-labelledby="work-title">
-      <div class="section-head"><h2 id="work-title">Selected work</h2><p class="mono">2025 · 01 featured project</p></div>
-      <article class="project project-featured artworker-project">
-        <div class="project-visual visual-artworker">
-          <img src="artworker-cover.jpg" alt="Cover of the Eco-Power from Waste scientific paper by team artWorker" />
-          <div class="award-stamp"><span>Favorite Idea</span><strong>Winner</strong><small>Innovation Idea Competition 2025</small></div>
-        </div>
-        <div class="project-copy artworker-copy">
-          <div><span class="index mono">01 / ENERGY INNOVATION · TEAM MEMBER</span><h3>Eco-Power from Waste</h3></div>
-          <p>A Microbial Fuel Cell concept that turns drilling mud and food waste into renewable electricity while reducing heavy-metal contamination.</p>
-          <span class="arrow" aria-hidden="true">↗</span>
-        </div>
-        <div class="project-stats" aria-label="Project highlights">
-          <div><strong>60%</strong><span>simulated Cu²⁺ reduction</span></div>
-          <div><strong>0.25 V</strong><span>maximum output per cell</span></div>
-          <div><strong>24%</strong><span>substrate reduction</span></div>
-          <div><strong>Favorite Idea</strong><span>Pertamina Hulu Energi competition</span></div>
-        </div>
-        <div class="project-actions">
-          <button class="case-button" type="button" data-project="artworker" aria-haspopup="dialog">Read project summary <span>↗</span></button>
-          <a class="case-button secondary" href="artWorker.pdf" target="_blank">Open research paper <span>↗</span></a>
+    <div class="ticker" aria-hidden="true"><div>ROBOTICS <i>✦</i> ENERGY INNOVATION <i>✦</i> SYSTEM MODELING <i>✦</i> PURPOSEFUL TECHNOLOGY <i>✦</i> ROBOTICS <i>✦</i> ENERGY INNOVATION</div></div>
+
+    <section class="section shell" id="expertise">
+      <div class="section-heading"><div><p class="eyebrow">What I’m building toward</p><h2>Ideas grounded in<br><em>engineering.</em></h2></div><p>I’m developing a multidisciplinary foundation across hardware, modeling, and sustainable systems.</p></div>
+      <div class="service-grid">
+        <article class="service-card orange"><span class="card-num">01</span><div class="service-icon" aria-hidden="true">⌁</div><h3>Energy systems</h3><p>Exploring renewable generation, power conversion, storage, and the path from simulation to implementation.</p><span class="tag">SUSTAINABILITY</span></article>
+        <article class="service-card"><span class="card-num">02</span><div class="service-icon" aria-hidden="true">⌘</div><h3>Robotics & automation</h3><p>Interested in sensing, control, electronics, and intelligent machines built for useful real-world tasks.</p><span class="tag">INTELLIGENT SYSTEMS</span></article>
+        <article class="service-card cream"><span class="card-num">03</span><div class="service-icon" aria-hidden="true">∿</div><h3>Modeling & prototyping</h3><p>Using analysis and simulation to test assumptions, understand tradeoffs, and shape better technical decisions.</p><span class="tag">MATLAB / SIMULINK</span></article>
+      </div>
+    </section>
+
+    <section class="section shell" id="work">
+      <div class="section-heading work-head"><div><p class="eyebrow">Selected project</p><h2>Research with<br><em>real ambition.</em></h2></div><p>One project, shown with enough context to understand the problem, system, and contribution.</p></div>
+      <article class="case">
+        <div class="case-media"><img src="artworker-cover.jpg" alt="Eco-Power from Waste research paper cover" /><div class="award"><small>2025</small><strong>Favorite<br>Idea</strong><span>Pertamina Hulu Energi</span></div></div>
+        <div class="case-content">
+          <p class="eyebrow orange-text">Team artWorker · Team member</p>
+          <h3>Eco-Power<br>from Waste</h3>
+          <p class="case-lead">A Microbial Fuel Cell system designed to generate low-power renewable electricity while treating drilling mud and food waste simultaneously.</p>
+          <div class="system-flow" aria-label="System flow"><span>Food waste + drilling mud</span><b>→</b><span>MFC stack</span><b>→</b><span>Boost converter</span><b>→</b><span>IoT monitoring</span></div>
+          <div class="metrics"><div><strong>60%</strong><span>Simulated Cu²⁺ reduction</span></div><div><strong>24%</strong><span>Substrate reduction</span></div><div><strong>0.25V</strong><span>Output per cell</span></div></div>
+          <div class="case-actions"><button class="button primary" id="open-case" type="button">Project summary <span>↗</span></button><a class="button ghost light" href="artWorker.pdf" target="_blank">Research paper <span>↗</span></a></div>
         </div>
       </article>
     </section>
 
-    <section class="about" id="about" aria-labelledby="about-title">
-      <div class="section-head"><h2 id="about-title">A bit about me</h2><p class="mono">PROFILE / 2026</p></div>
-      <div class="about-profile">
-        <figure class="portrait"><img src="profile.jpg" alt="Portrait of Nabil Haniya Zafri wearing a yellow Universitas Indonesia jacket" /></figure>
-        <div class="about-info">
-          <p class="about-lead">I’m Nabil—an electrical engineering student interested in <em>robotics</em>, <em>energy</em>, and ideas that survive contact with reality.</p>
-          <p>I enjoy connecting technical analysis with practical implementation. My current work spans bioelectrochemical energy systems, electronics, simulation, and collaborative innovation.</p>
-          <dl><div><dt>Based at</dt><dd>Universitas Indonesia<br>Indonesia</dd></div><div><dt>Interests</dt><dd>Robotics<br>Energy innovation<br>Technology systems</dd></div></dl>
-        </div>
+    <section class="section shell experience" id="experience">
+      <div class="section-heading experience-head"><div><p class="eyebrow">Leadership & experience</p><h2>Growing through<br><em>responsibility.</em></h2></div><p>Leading teams, evaluating organizations, and building technical initiatives across university and school communities.</p></div>
+      <div class="timeline">
+        <article class="timeline-item featured-role"><div class="timeline-date">FEB 2026 — PRESENT</div><div class="timeline-role"><span>Ikatan Mahasiswa Elektro FTUI</span><h3>Vice Head of Research & Development</h3><p>Manage and supervise R&D staff while serving as an analyzer, evaluator, and internal consultant. Lead structured problem analysis and data-driven recommendations for organizational decisions.</p></div><div class="role-mark">CURRENT</div></article>
+        <article class="timeline-item"><div class="timeline-date">AUG 2024 — PRESENT</div><div class="timeline-role"><span>Universitas Indonesia</span><h3>Undergraduate Student · Electrical Engineering</h3><p>Developing a technical foundation in electrical engineering with growing focus on electronics, robotics, sustainable energy, and system-level problem solving.</p></div><div class="role-index">02</div></article>
+        <article class="timeline-item"><div class="timeline-date">AUG 2022 — AUG 2023</div><div class="timeline-role"><span>Tim Robotika MAN 2 Jakarta</span><h3>Team Leader</h3><p>Led a student robotics team and coordinated technical development, collaboration, and preparation around robotics initiatives.</p></div><div class="role-index">03</div></article>
+        <article class="timeline-item"><div class="timeline-date">JUL 2022 — JUL 2023</div><div class="timeline-role"><span>OSIS Arutala · MAN 2 Jakarta</span><h3>Head of Information Technology</h3><p>Managed technology projects, digital solutions, social media, and technology-based events while leading the organization’s IT section.</p></div><div class="role-index">04</div></article>
+        <article class="timeline-item"><div class="timeline-date">SEP 2022</div><div class="timeline-role"><span>OSIS Arutala · MAN 2 Jakarta</span><h3>Project Officer · Spirulinix 8.0</h3><p>Coordinated the planning and delivery of Spirulinix 8.0 as project officer.</p></div><div class="role-index">05</div></article>
       </div>
     </section>
 
-    <section class="contact" id="contact" aria-labelledby="contact-title">
-      <p class="mono">LET’S BUILD SOMETHING USEFUL</p>
-      <h2 id="contact-title">Start a<br><em>conversation.</em></h2>
-      <div class="contact-list">
-        <a class="contact-link" href="mailto:nhaniya14@gmail.com">nhaniya14@gmail.com <span aria-hidden="true">↗</span></a>
-        <a class="contact-link" href="https://www.linkedin.com/in/nabilhaniyazafri" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
-        <a class="contact-link" href="https://www.instagram.com/nbl.zfr" target="_blank" rel="noreferrer">Instagram · @nbl.zfr <span aria-hidden="true">↗</span></a>
+    <section class="section shell" id="about">
+      <div class="about-card">
+        <div class="about-top"><p class="eyebrow">About me</p><span>Based in Indonesia · <span id="clock">00:00 WIB</span></span></div>
+        <div class="about-main"><h2>Curious by nature.<br><em>Technical by training.</em></h2><div><p>I’m an Electrical Engineering student at Universitas Indonesia. I like work that connects rigorous analysis with tangible value—especially in robotics, sustainable energy, and emerging technology.</p><p>My goal is simple: keep learning, build with intention, and contribute to projects that are useful beyond the presentation slide.</p></div></div>
+        <div class="about-bottom"><div><span>Currently exploring</span><strong>Robotics · Renewable energy · Electronics · System simulation</strong></div><div><span>Recognition</span><strong>Favorite Idea — Innovation Idea Competition 2025</strong></div></div>
       </div>
+    </section>
+
+    <section class="contact shell" id="contact">
+      <p class="eyebrow">Have an idea, opportunity, or good question?</p><h2>Let’s build the<br><em>next thing.</em></h2>
+      <a class="mail" href="mailto:nhaniya14@gmail.com"><span>nhaniya14@gmail.com</span><b>↗</b></a>
+      <div class="socials"><a href="https://www.linkedin.com/in/nabilhaniyazafri" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://www.instagram.com/nbl.zfr" target="_blank" rel="noreferrer">Instagram ↗</a></div>
     </section>
   </main>
 
-  <footer><span>© 2026 Nabil Haniya Zafri</span><span>Indonesia · <span id="clock">00:00 WIB</span></span><a href="#top">Back to top ↑</a></footer>
+  <footer class="shell"><a class="logo" href="#top">NABIL<span>.</span></a><p>© 2026 Nabil Haniya Zafri</p><a href="#top">Back to top ↑</a></footer>
 
-  <dialog class="case-dialog" id="case-dialog" aria-labelledby="dialog-title">
-    <button class="dialog-close" type="button" aria-label="Close project details">Close ×</button>
-    <p class="mono" id="dialog-meta">2025 / ENERGY INNOVATION</p>
-    <h2 id="dialog-title">Eco-Power from Waste</h2>
-    <p id="dialog-copy">As a member of team artWorker, I helped develop a simulated dual-chamber Microbial Fuel Cell system using food waste as a carbon source and drilling mud as the bioremediation target. The team’s proposal earned the Favorite Idea title at the 2025 Innovation Idea Competition by Pertamina Hulu Energi.</p>
-    <div class="dialog-grid"><div><b>The idea</b><span>Produce low-power renewable electricity while treating two waste streams at once.</span></div><div><b>The system</b><span>MFC stack → DC–DC boost converter → sodium-ion battery → mining-monitoring sensors.</span></div><div><b>My role</b><span>Collaborative research, system development, simulation analysis, and competition delivery as a team member.</span></div><div><b>Next step</b><span>Validate the MATLAB/Simulink model through a laboratory-scale experiment.</span></div></div>
-    <a class="case-button" href="artWorker.pdf" target="_blank">Read the full paper <span>↗</span></a>
+  <dialog id="case-dialog" aria-labelledby="case-title">
+    <button class="dialog-close" type="button" aria-label="Close">Close ×</button><p class="eyebrow orange-text">Energy innovation · 2025</p><h2 id="case-title">Eco-Power from Waste</h2><p class="dialog-lead">As a member of team artWorker, I helped develop a simulated dual-chamber Microbial Fuel Cell concept using food waste as a carbon source and drilling mud as the bioremediation target.</p>
+    <div class="dialog-grid"><div><b>Problem</b><span>Two significant waste streams remain underutilized and environmentally harmful.</span></div><div><b>Approach</b><span>Model biological kinetics and electrical output as one integrated MFC system.</span></div><div><b>System</b><span>MFC stack, DC–DC boost converter, sodium-ion battery, and monitoring sensors.</span></div><div><b>Recognition</b><span>Favorite Idea at Innovation Idea Competition 2025 by Pertamina Hulu Energi.</span></div></div><a class="button primary" href="artWorker.pdf" target="_blank">Read full paper <span>↗</span></a>
   </dialog>
 </body>
 </html>
